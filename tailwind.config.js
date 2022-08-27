@@ -12,6 +12,7 @@ module.exports = {
         "press-start": ['"Press Start 2P"', "cursive"],
         "oswold-g": ["Oswald"],
         aboreto: ["Aboreto"],
+        cinzel: ["Cinzel"],
       },
     },
   },

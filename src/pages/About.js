@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about">
       <div className="absolute top-1/2 w-full -translate-y-1/2 text-center">
-        <h1 className="font-aboreto text-6xl">HAGAR</h1>
+        <h1 className="font-cinzel text-6xl">HAGAR</h1>
         <br />
         <a
           href="https://www.linkedin.com/in/hagardolev/"
