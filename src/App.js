@@ -1,27 +1,33 @@
 // src/App.js
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Header from "./components/layout/Header";
+import Work from "./pages/Work";
 import About from "./pages/About";
-import Navbar from "./components/Navbar";
-import Projects from "./pages/Projects";
-import Expirience from "./pages/Expirience";
-import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import Research from "./pages/Research";
 
-export default function App() {
+function App() {
   return (
-    <div className="text-neutral-600 body-font">
-      {/*bg-neutral-50*/}
-      {/*<Navbar />*/}
-      <Routes>
-        <Route path="/" element={<About />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        {/*<Route path="/Expirience" element={<Expirience />} />*/}
-      </Routes>
-      {/*<About />*/}
-      {/*<Projects />*/}
-      {/*<Skills />*/}
-      {/*<Testimonials />*/}
-      {/*<Contact />*/}
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+        <Header />
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/research" element={<Research />} />
+          </Routes>
+        </AnimatePresence>
+      </div>
+    </BrowserRouter>
   );
 }
+
+export default App;
