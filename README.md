@@ -62,9 +62,7 @@ npm run deploy
 
 Feel free to reach out to me for collaborations or opportunities:
 
-- Email: [Your Email]
-- LinkedIn: [Your LinkedIn]
-- GitHub: [Your GitHub]
+- LinkedIn: [Hagar Dolev](https://www.linkedin.com/in/hagar-dolev/)
 
 ## License
 
