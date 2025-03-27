@@ -1,3 +1,5 @@
+import { getAssetPath } from "../utils/paths";
+
 export const projects = [
   {
     id: 1,
@@ -8,26 +10,26 @@ export const projects = [
       Created a set of cards as part of a course assignment, "illustration with Rutu Modan".
       I used special oil color sticks, with inspiration from local cars.
     `,
-    mainImage: "/protfolio/project_imgs/project_1/1.png",
+    mainImage: "protfolio/project_imgs/project_1/1.png",
     images: [
       {
-        src: "/protfolio/project_imgs/project_1/1.png",
+        src: "protfolio/project_imgs/project_1/1.png",
         caption: "Eged Buses",
       },
       {
-        src: "/protfolio/project_imgs/project_1/2.png",
+        src: "protfolio/project_imgs/project_1/2.png",
         caption: "My old 308 Peugeot",
       },
       {
-        src: "/protfolio/project_imgs/project_1/3.png",
+        src: "protfolio/project_imgs/project_1/3.png",
         caption: "Israeli train",
       },
       {
-        src: "/protfolio/project_imgs/project_1/4.png",
+        src: "protfolio/project_imgs/project_1/4.png",
         caption: "Tel aviv street commuters",
       },
       {
-        src: "/protfolio/project_imgs/project_1/5.png",
+        src: "protfolio/project_imgs/project_1/5.png",
         caption: "My brother's helicopter",
       },
     ],
@@ -76,7 +78,7 @@ export const projects = [
       We used a phisical set with "collage" technique, green screen and our acting skills. This is a humorous take on the book.
     `,
     mainVideo: "https://youtu.be/t2V8LO4CMyY",
-    thumbnailVideo: "/protfolio/project_imgs/project_3/rent_dira_thumbnail.mp4",
+    thumbnailVideo: "protfolio/project_imgs/project_3/rent_dira_thumbnail.mp4",
     tags: ["Interactive", "Installation", "Physical Computing"],
     year: "2020",
     role: "Installation Artist & Developer",

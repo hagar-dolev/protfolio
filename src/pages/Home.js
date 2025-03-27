@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/projects";
 import ProjectModal from "../components/ProjectModal";
+import { getAssetPath } from "../utils/paths";
 
 // Helper function to get YouTube video ID
 const getYouTubeId = (url) => {
@@ -63,13 +64,17 @@ const ProjectShowcase = ({ project, isActive }) => {
     >
       {media.type === "image" ? (
         <img
-          src={media.src}
+          src={getAssetPath(media.src)}
           alt={project.title}
           className="w-full h-full object-cover"
         />
       ) : (
         <video
-          src={media.src}
+          src={
+            media.src.includes("youtube.com")
+              ? media.src
+              : getAssetPath(media.src)
+          }
           className="w-full h-full object-cover"
           autoPlay
           loop

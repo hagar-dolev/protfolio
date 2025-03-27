@@ -1,66 +1,67 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { getAssetPath } from "../utils/paths";
 
 const photographs = [
   {
     id: 1,
-    src: "/protfolio/photography/000131920062.jpg",
+    src: "protfolio/photography/000131920062.jpg",
   },
   {
     id: 2,
-    src: "/protfolio/photography/000131920047.jpg",
+    src: "protfolio/photography/000131920047.jpg",
   },
   {
     id: 3,
-    src: "/protfolio/photography/000131920046.jpg",
+    src: "protfolio/photography/000131920046.jpg",
   },
   {
     id: 4,
-    src: "/protfolio/photography/000131920033.jpg",
+    src: "protfolio/photography/000131920033.jpg",
   },
   {
     id: 5,
-    src: "/protfolio/photography/000131920016.jpg",
+    src: "protfolio/photography/000131920016.jpg",
   },
   {
     id: 6,
-    src: "/protfolio/photography/IMG_7830.jpg",
+    src: "protfolio/photography/IMG_7830.jpg",
   },
   {
     id: 7,
-    src: "/protfolio/photography/F1000022.JPG",
+    src: "protfolio/photography/F1000022.JPG",
   },
   {
     id: 8,
-    src: "/protfolio/photography/F1000021.JPG",
+    src: "protfolio/photography/F1000021.JPG",
   },
   {
     id: 9,
-    src: "/protfolio/photography/F1000016.JPG",
+    src: "protfolio/photography/F1000016.JPG",
   },
   {
     id: 10,
-    src: "/protfolio/photography/97480015.JPG",
+    src: "protfolio/photography/97480015.JPG",
   },
   {
     id: 11,
-    src: "/protfolio/photography/000017.JPG",
+    src: "protfolio/photography/000017.JPG",
   },
   {
     id: 12,
-    src: "/protfolio/photography/000027.JPG",
+    src: "protfolio/photography/000027.JPG",
   },
   {
     id: 13,
-    src: "/protfolio/photography/000013.JPG",
+    src: "protfolio/photography/000013.JPG",
   },
   {
     id: 14,
-    src: "/protfolio/photography/IMG_8476.jpg",
+    src: "protfolio/photography/IMG_8476.jpg",
   },
   {
     id: 15,
-    src: "/protfolio/photography/IMG_6723.jpg",
+    src: "protfolio/photography/IMG_6723.jpg",
   },
 ];
 
@@ -101,7 +102,7 @@ const Photography = () => {
               onClick={() => setSelectedImage(photo)}
             >
               <img
-                src={photo.src}
+                src={getAssetPath(photo.src)}
                 alt=""
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 onDragStart={handleDragStart}
@@ -133,7 +134,7 @@ const Photography = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={selectedImage.src}
+                src={getAssetPath(selectedImage.src)}
                 alt=""
                 className="max-h-[90vh] w-auto pointer-events-none select-none"
                 onDragStart={handleDragStart}
