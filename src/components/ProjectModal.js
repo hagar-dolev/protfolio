@@ -5,6 +5,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { getAssetPath } from "../utils/paths";
 
 // Helper function to get YouTube video ID
 const getYouTubeId = (url) => {
@@ -33,7 +34,7 @@ const MediaDisplay = ({ media, className }) => {
     // Local video file
     return (
       <video
-        src={media.src}
+        src={getAssetPath(media.src)}
         className={`${className} ${
           media.isPortrait
             ? "max-h-[90vh] w-auto mx-auto"
@@ -48,7 +49,7 @@ const MediaDisplay = ({ media, className }) => {
   }
   return (
     <img
-      src={media.src}
+      src={getAssetPath(media.src)}
       alt={media.caption}
       className={`${className} object-contain`}
     />
