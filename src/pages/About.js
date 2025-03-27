@@ -40,7 +40,7 @@ export default function About() {
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src="./ex_libris_hd.svg"
+              src="./logo.svg"
             />
           </div>
         </div>
