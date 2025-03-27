@@ -40,19 +40,6 @@ const TypewriterText = ({ text }) => {
 };
 
 const ProjectShowcase = ({ project, isActive }) => {
-  const getMainMedia = (project) => {
-    if (project.type === "mixed") {
-      return project.mainMedia || { type: "image", src: project.mainImage };
-    }
-    return {
-      type: project.type,
-      src:
-        project.type === "image"
-          ? project.mainImage || project.images[0].src
-          : project.mainVideo,
-    };
-  };
-
   const media = getMainMedia(project);
 
   return (
@@ -68,13 +55,17 @@ const ProjectShowcase = ({ project, isActive }) => {
           alt={project.title}
           className="w-full h-full object-cover"
         />
+      ) : media.isYouTube ? (
+        <img
+          src={`https://img.youtube.com/vi/${getYouTubeId(
+            media.src
+          )}/maxresdefault.jpg`}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
       ) : (
         <video
-          src={
-            media.src.includes("youtube.com")
-              ? media.src
-              : getAssetPath(media.src)
-          }
+          src={getAssetPath(media.src)}
           className="w-full h-full object-cover"
           autoPlay
           loop
@@ -82,20 +73,21 @@ const ProjectShowcase = ({ project, isActive }) => {
           playsInline
         />
       )}
-      <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />
-      <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        >
-          <h2 className="text-3xl font-bold text-white mb-2">
-            {project.title}
-          </h2>
-          <p className="text-white/90 text-lg max-w-2xl">
-            {project.shortDescription}
-          </p>
-        </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-0 left-0 right-0 p-8">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-bold text-white mb-2">
+              {project.title}
+            </h2>
+            <p className="text-white/90 text-lg max-w-2xl">
+              {project.shortDescription}
+            </p>
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );
@@ -150,43 +142,16 @@ const Home = () => {
     if (project.type === "mixed") {
       return project.mainMedia || { type: "image", src: project.mainImage };
     }
-
-    // For video projects
-    if (project.type === "video") {
-      // Check if there's a thumbnail image
-      if (project.thumbnailVideo) {
-        return {
-          type: "video",
-          src: project.thumbnailVideo,
-          isYouTube: false,
-        };
-      }
-      // If it's a YouTube URL, return a thumbnail image instead
-      if (
-        project.mainVideo.includes("youtube.com") ||
-        project.mainVideo.includes("youtu.be")
-      ) {
-        const videoId = getYouTubeId(project.mainVideo);
-        return {
-          type: "image",
-          src: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
-        };
-      }
-      // Default to mainVideo
-      return {
-        type: "video",
-        src: project.mainVideo,
-        isYouTube: false,
-      };
-    }
-
-    // For image projects
     return {
-      type: "image",
+      type: project.type,
       src:
         project.type === "image"
-          ? project.mainImage || project.images[0].src
-          : project.mainVideo,
+          ? project.mainImage
+          : project.thumbnailVideo || project.mainVideo,
+      isYouTube:
+        project.type === "video" &&
+        !project.thumbnailVideo &&
+        project.mainVideo.includes("youtube.com"),
     };
   };
 
@@ -249,13 +214,21 @@ const Home = () => {
                 >
                   {media.type === "image" ? (
                     <img
-                      src={media.src}
+                      src={getAssetPath(media.src)}
+                      alt={project.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : media.isYouTube ? (
+                    <img
+                      src={`https://img.youtube.com/vi/${getYouTubeId(
+                        media.src
+                      )}/maxresdefault.jpg`}
                       alt={project.title}
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
                     <video
-                      src={media.src}
+                      src={getAssetPath(media.src)}
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                       loop
                       muted

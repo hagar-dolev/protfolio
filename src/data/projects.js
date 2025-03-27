@@ -1,5 +1,3 @@
-import { getAssetPath } from "../utils/paths";
-
 export const projects = [
   {
     id: 1,
@@ -44,22 +42,22 @@ export const projects = [
     title: "Juno Calipso look alike",
     shortDescription: "Photography imitating Juno Calipso's work",
     description: `As part of a course assignment, I created a look alike of Juno Calipso's work, imitating her photographies. I photographed myself similarly to the way Juno Calipso poses in her works. These portraits seem as from another world, imagined fantasy of pink.`,
-    mainImage: "/protfolio/project_imgs/project_2/1.png",
+    mainImage: "protfolio/project_imgs/project_2/1.png",
     images: [
       {
-        src: "/protfolio/project_imgs/project_2/1.png",
+        src: "protfolio/project_imgs/project_2/1.png",
       },
       {
-        src: "/protfolio/project_imgs/project_2/2.png",
+        src: "protfolio/project_imgs/project_2/2.png",
       },
       {
-        src: "/protfolio/project_imgs/project_2/3.png",
+        src: "protfolio/project_imgs/project_2/3.png",
       },
       {
-        src: "/protfolio/project_imgs/project_2/4.png",
+        src: "protfolio/project_imgs/project_2/4.png",
       },
       {
-        src: "/protfolio/project_imgs/project_2/5.png",
+        src: "protfolio/project_imgs/project_2/5.png",
       },
     ],
     tags: ["Photography", "Photo manipulation", "Photoshop", "Set creation"],
@@ -95,7 +93,7 @@ export const projects = [
     `,
     mainVideo: "https://youtu.be/qGmnECY1fRs",
     thumbnailVideo:
-      "/protfolio/project_imgs/project_4/bazookaMoon_thumbnail.mp4",
+      "protfolio/project_imgs/project_4/bazookaMoon_thumbnail.mp4",
     tags: ["Videography", "Video editing", "After Effects", "Story Board"],
     year: "2020",
     role: "Creator",
@@ -106,10 +104,10 @@ export const projects = [
     type: "mixed",
     title: "Blue Moon",
     shortDescription: "Interactive book with animations",
-    mainImage: "/protfolio/project_imgs/project_5/IMG_3492.jpg",
+    mainImage: "protfolio/project_imgs/project_5/IMG_3492.jpg",
     mainMedia: {
       type: "image",
-      src: "/protfolio/project_imgs/project_5/IMG_3492.jpg",
+      src: "protfolio/project_imgs/project_5/IMG_3492.jpg",
     },
     description: `
 'Blue Moon' is an interactive book that explores inner conflict and emotions through illustration and an innovative format.
@@ -119,7 +117,7 @@ The sound design for the project was created by Yair Cohen.
     media: [
       {
         type: "image",
-        src: "/protfolio/project_imgs/project_5/IMG_3492.jpg",
+        src: "protfolio/project_imgs/project_5/IMG_3492.jpg",
       },
       {
         type: "video",
@@ -128,7 +126,7 @@ The sound design for the project was created by Yair Cohen.
       },
       {
         type: "image",
-        src: "/protfolio/project_imgs/project_5/IMG_3493.jpg",
+        src: "protfolio/project_imgs/project_5/IMG_3493.jpg",
       },
       {
         type: "video",
@@ -161,9 +159,10 @@ The sound design for the project was created by Yair Cohen.
       The game is a 3D platformer where the player controls the ship with his head and he needs to reach a destination without falling off the edge.
       The game was created in Unity game engine.
     `,
+    hideFromLanding: true,
     mainMedia: {
       type: "video",
-      src: "/protfolio/project_imgs/project_6/1.MOV",
+      src: "protfolio/project_imgs/project_6/1.MOV",
     },
     tags: ["Game", "Unity", "Game Jam"],
     year: "2020",
@@ -172,19 +171,19 @@ The sound design for the project was created by Yair Cohen.
     media: [
       {
         type: "video",
-        src: "/protfolio/project_imgs/project_6/1.MOV",
+        src: "protfolio/project_imgs/project_6/1.MOV",
       },
       {
         type: "image",
-        src: "/protfolio/project_imgs/project_6/2.jpeg",
+        src: "protfolio/project_imgs/project_6/2.jpeg",
       },
       {
         type: "image",
-        src: "/protfolio/project_imgs/project_6/3.jpeg",
+        src: "protfolio/project_imgs/project_6/3.jpeg",
       },
       {
         type: "video",
-        src: "/protfolio/project_imgs/project_6/4.MOV",
+        src: "protfolio/project_imgs/project_6/4.MOV",
       },
     ],
   },
@@ -197,8 +196,7 @@ The sound design for the project was created by Yair Cohen.
       A video I made from my vacation in Corfu.
     `,
     mainVideo: "https://youtu.be/HQlK7td12T4",
-    thumbnailVideo:
-      "/protfolio/project_imgs/project_7/CorfuDraft_thumbnail.mp4",
+    thumbnailVideo: "protfolio/project_imgs/project_7/CorfuDraft_thumbnail.mp4",
     tags: ["Videography", "Video editing", "After Effects"],
     year: "2024",
     role: "Creator",
