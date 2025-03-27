@@ -2,7 +2,7 @@
   "name": "portfolio_site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hagar-dolev.github.io/protfolio",
+  "homepage": "https://hagardolev.com",
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "@testing-library/jest-dom": "^6.4.2",
