@@ -9,5 +9,5 @@ export const getAssetPath = (path) => {
   }
 
   // In production (GitHub Pages), use absolute paths with /portfolio prefix
-  return `/portfolio/${cleanPath.replace("portfolio/", "")}`;
+  return `${cleanPath.replace("portfolio/", "")}`;
 };
