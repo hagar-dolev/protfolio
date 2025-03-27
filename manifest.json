@@ -1,0 +1,20 @@
+{
+  "short_name": "Hagar Dolev",
+  "name": "Hagar Dolevs protfolio",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#FFFDFA"
+}
