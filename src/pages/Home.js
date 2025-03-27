@@ -16,16 +16,42 @@ const getMainMedia = (project) => {
   if (project.type === "mixed") {
     return project.mainMedia || { type: "image", src: project.mainImage };
   }
+
+  // For video projects
+  if (project.type === "video") {
+    // Use thumbnail video if available
+    if (project.thumbnailVideo) {
+      return {
+        type: "video",
+        src: project.thumbnailVideo,
+        isYouTube: false,
+      };
+    }
+    // For YouTube videos, use their thumbnail
+    if (
+      project.mainVideo.includes("youtube.com") ||
+      project.mainVideo.includes("youtu.be")
+    ) {
+      const videoId = getYouTubeId(project.mainVideo);
+      return {
+        type: "image",
+        src: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+        isYouTube: true,
+      };
+    }
+    // Default to main video
+    return {
+      type: "video",
+      src: project.mainVideo,
+      isYouTube: false,
+    };
+  }
+
+  // For image projects
   return {
-    type: project.type,
-    src:
-      project.type === "image"
-        ? project.mainImage
-        : project.thumbnailVideo || project.mainVideo,
-    isYouTube:
-      project.type === "video" &&
-      !project.thumbnailVideo &&
-      project.mainVideo.includes("youtube.com"),
+    type: "image",
+    src: project.mainImage,
+    isYouTube: false,
   };
 };
 
@@ -69,43 +95,36 @@ const ProjectShowcase = ({ project, isActive }) => {
     >
       {media.type === "image" ? (
         <img
-          src={getAssetPath(media.src)}
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-      ) : media.isYouTube ? (
-        <img
-          src={`https://img.youtube.com/vi/${getYouTubeId(
-            media.src
-          )}/maxresdefault.jpg`}
+          src={media.isYouTube ? media.src : getAssetPath(media.src)}
           alt={project.title}
           className="w-full h-full object-cover"
         />
       ) : (
         <video
           src={getAssetPath(media.src)}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${
+            project.isPortrait ? "object-contain" : "object-cover"
+          }`}
           autoPlay
           loop
           muted
           playsInline
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-white mb-2">
-              {project.title}
-            </h2>
-            <p className="text-white/90 text-lg max-w-2xl">
-              {project.shortDescription}
-            </p>
-          </motion.div>
-        </div>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
+      <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <h2 className="text-3xl font-bold text-white mb-2">
+            {project.title}
+          </h2>
+          <p className="text-white/90 text-lg max-w-2xl">
+            {project.shortDescription}
+          </p>
+        </motion.div>
       </div>
     </motion.div>
   );
@@ -215,27 +234,22 @@ const Home = () => {
                 >
                   {media.type === "image" ? (
                     <img
-                      src={getAssetPath(media.src)}
-                      alt={project.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : media.isYouTube ? (
-                    <img
-                      src={`https://img.youtube.com/vi/${getYouTubeId(
-                        media.src
-                      )}/maxresdefault.jpg`}
+                      src={
+                        media.isYouTube ? media.src : getAssetPath(media.src)
+                      }
                       alt={project.title}
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
                     <video
                       src={getAssetPath(media.src)}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      className={`w-full h-full ${
+                        project.isPortrait ? "object-contain" : "object-cover"
+                      } transform group-hover:scale-105 transition-transform duration-300`}
                       loop
                       muted
                       playsInline
-                      onMouseEnter={(e) => e.target.play()}
-                      onMouseLeave={(e) => e.target.pause()}
+                      autoPlay
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
