@@ -63,6 +63,18 @@ const photographs = [
     id: 15,
     src: "photography/IMG_6723.jpg",
   },
+  {
+    id: 16,
+    src: "photography/14_yarden_n_hagar.jpg",
+  },
+  {
+    id: 17,
+    src: "photography/21_yarden_n_hagar.jpg",
+  },
+  {
+    id: 18,
+    src: "photography/DSC04292.jpg",
+  }
 ];
 
 const Photography = () => {
