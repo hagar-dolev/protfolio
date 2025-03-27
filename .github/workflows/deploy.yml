@@ -18,6 +18,11 @@ jobs:
           lfs: true
           fetch-depth: 0
 
+      - name: Setup Git LFS
+        run: |
+          git lfs install
+          git lfs pull
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -37,3 +42,5 @@ jobs:
           publish_dir: ./build
           force_orphan: true
           enable_jekyll: false
+          # Enable Git LFS for deployment
+          enable_git_lfs: true
