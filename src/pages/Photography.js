@@ -4,63 +4,63 @@ import { motion } from "framer-motion";
 const photographs = [
   {
     id: 1,
-    src: "photography/000131920062.jpg",
+    src: "/protfolio/photography/000131920062.jpg",
   },
   {
     id: 2,
-    src: "photography/000131920047.jpg",
+    src: "/protfolio/photography/000131920047.jpg",
   },
   {
     id: 3,
-    src: "photography/000131920046.jpg",
+    src: "/protfolio/photography/000131920046.jpg",
   },
   {
     id: 4,
-    src: "photography/000131920033.jpg",
+    src: "/protfolio/photography/000131920033.jpg",
   },
   {
     id: 5,
-    src: "photography/000131920016.jpg",
+    src: "/protfolio/photography/000131920016.jpg",
   },
   {
     id: 6,
-    src: "photography/IMG_7830.jpg",
+    src: "/protfolio/photography/IMG_7830.jpg",
   },
   {
     id: 7,
-    src: "photography/F1000022.JPG",
+    src: "/protfolio/photography/F1000022.JPG",
   },
   {
     id: 8,
-    src: "photography/F1000021.JPG",
+    src: "/protfolio/photography/F1000021.JPG",
   },
   {
     id: 9,
-    src: "photography/F1000016.JPG",
+    src: "/protfolio/photography/F1000016.JPG",
   },
   {
     id: 10,
-    src: "photography/97480015.JPG",
+    src: "/protfolio/photography/97480015.JPG",
   },
   {
     id: 11,
-    src: "photography/000017.JPG",
+    src: "/protfolio/photography/000017.JPG",
   },
   {
     id: 12,
-    src: "photography/000027.JPG",
+    src: "/protfolio/photography/000027.JPG",
   },
   {
     id: 13,
-    src: "photography/000013.JPG",
+    src: "/protfolio/photography/000013.JPG",
   },
   {
     id: 14,
-    src: "photography/IMG_8476.jpg",
+    src: "/protfolio/photography/IMG_8476.jpg",
   },
   {
     id: 15,
-    src: "photography/IMG_6723.jpg",
+    src: "/protfolio/photography/IMG_6723.jpg",
   },
 ];
 
@@ -82,7 +82,7 @@ const Photography = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen pt-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-800"
+      className="min-h-screen pt-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900"
       onContextMenu={handleContextMenu}
     >
       <div className="max-w-7xl mx-auto py-12">

@@ -8,26 +8,26 @@ export const projects = [
       Created a set of cards as part of a course assignment, "illustration with Rutu Modan".
       I used special oil color sticks, with inspiration from local cars.
     `,
-    mainImage: "project_imgs/project_1/1.png",
+    mainImage: "/protfolio/project_imgs/project_1/1.png",
     images: [
       {
-        src: "project_imgs/project_1/1.png",
+        src: "/protfolio/project_imgs/project_1/1.png",
         caption: "Eged Buses",
       },
       {
-        src: "project_imgs/project_1/2.png",
+        src: "/protfolio/project_imgs/project_1/2.png",
         caption: "My old 308 Peugeot",
       },
       {
-        src: "project_imgs/project_1/3.png",
+        src: "/protfolio/project_imgs/project_1/3.png",
         caption: "Israeli train",
       },
       {
-        src: "project_imgs/project_1/4.png",
+        src: "/protfolio/project_imgs/project_1/4.png",
         caption: "Tel aviv street commuters",
       },
       {
-        src: "project_imgs/project_1/5.png",
+        src: "/protfolio/project_imgs/project_1/5.png",
         caption: "My brother's helicopter",
       },
     ],
@@ -42,22 +42,22 @@ export const projects = [
     title: "Juno Calipso look alike",
     shortDescription: "Photography imitating Juno Calipso's work",
     description: `As part of a course assignment, I created a look alike of Juno Calipso's work, imitating her photographies. I photographed myself similarly to the way Juno Calipso poses in her works. These portraits seem as from another world, imagined fantasy of pink.`,
-    mainImage: "project_imgs/project_2/1.png",
+    mainImage: "/protfolio/project_imgs/project_2/1.png",
     images: [
       {
-        src: "project_imgs/project_2/1.png",
+        src: "/protfolio/project_imgs/project_2/1.png",
       },
       {
-        src: "project_imgs/project_2/2.png",
+        src: "/protfolio/project_imgs/project_2/2.png",
       },
       {
-        src: "project_imgs/project_2/3.png",
+        src: "/protfolio/project_imgs/project_2/3.png",
       },
       {
-        src: "project_imgs/project_2/4.png",
+        src: "/protfolio/project_imgs/project_2/4.png",
       },
       {
-        src: "project_imgs/project_2/5.png",
+        src: "/protfolio/project_imgs/project_2/5.png",
       },
     ],
     tags: ["Photography", "Photo manipulation", "Photoshop", "Set creation"],
@@ -76,7 +76,7 @@ export const projects = [
       We used a phisical set with "collage" technique, green screen and our acting skills. This is a humorous take on the book.
     `,
     mainVideo: "https://youtu.be/t2V8LO4CMyY",
-    thumbnailVideo: "/project_imgs/project_3/rent_dira_thumbnail.mp4",
+    thumbnailVideo: "/protfolio/project_imgs/project_3/rent_dira_thumbnail.mp4",
     tags: ["Interactive", "Installation", "Physical Computing"],
     year: "2020",
     role: "Installation Artist & Developer",
@@ -92,7 +92,8 @@ export const projects = [
       I used a storyboard to plan the video, and then filmed and edited it. Off course this is humorous approach to the product.
     `,
     mainVideo: "https://youtu.be/qGmnECY1fRs",
-    thumbnailVideo: "/project_imgs/project_4/bazookaMoon_thumbnail.mp4",
+    thumbnailVideo:
+      "/protfolio/project_imgs/project_4/bazookaMoon_thumbnail.mp4",
     tags: ["Videography", "Video editing", "After Effects", "Story Board"],
     year: "2020",
     role: "Creator",
@@ -103,10 +104,10 @@ export const projects = [
     type: "mixed",
     title: "Blue Moon",
     shortDescription: "Interactive book with animations",
-    mainImage: "project_imgs/project_5/IMG_3492.jpg",
+    mainImage: "/protfolio/project_imgs/project_5/IMG_3492.jpg",
     mainMedia: {
       type: "image",
-      src: "project_imgs/project_5/IMG_3492.jpg",
+      src: "/protfolio/project_imgs/project_5/IMG_3492.jpg",
     },
     description: `
 'Blue Moon' is an interactive book that explores inner conflict and emotions through illustration and an innovative format.
@@ -116,7 +117,7 @@ The sound design for the project was created by Yair Cohen.
     media: [
       {
         type: "image",
-        src: "project_imgs/project_5/IMG_3492.jpg",
+        src: "/protfolio/project_imgs/project_5/IMG_3492.jpg",
       },
       {
         type: "video",
@@ -125,7 +126,7 @@ The sound design for the project was created by Yair Cohen.
       },
       {
         type: "image",
-        src: "project_imgs/project_5/IMG_3493.jpg",
+        src: "/protfolio/project_imgs/project_5/IMG_3493.jpg",
       },
       {
         type: "video",
@@ -160,7 +161,7 @@ The sound design for the project was created by Yair Cohen.
     `,
     mainMedia: {
       type: "video",
-      src: "project_imgs/project_6/1.MOV",
+      src: "/protfolio/project_imgs/project_6/1.MOV",
     },
     tags: ["Game", "Unity", "Game Jam"],
     year: "2020",
@@ -169,19 +170,19 @@ The sound design for the project was created by Yair Cohen.
     media: [
       {
         type: "video",
-        src: "project_imgs/project_6/1.MOV",
+        src: "/protfolio/project_imgs/project_6/1.MOV",
       },
       {
         type: "image",
-        src: "project_imgs/project_6/2.jpeg",
+        src: "/protfolio/project_imgs/project_6/2.jpeg",
       },
       {
         type: "image",
-        src: "project_imgs/project_6/3.jpeg",
+        src: "/protfolio/project_imgs/project_6/3.jpeg",
       },
       {
         type: "video",
-        src: "project_imgs/project_6/4.MOV",
+        src: "/protfolio/project_imgs/project_6/4.MOV",
       },
     ],
   },
@@ -194,7 +195,8 @@ The sound design for the project was created by Yair Cohen.
       A video I made from my vacation in Corfu.
     `,
     mainVideo: "https://youtu.be/HQlK7td12T4",
-    thumbnailVideo: "/project_imgs/project_7/CorfuDraft_thumbnail.mp4",
+    thumbnailVideo:
+      "/protfolio/project_imgs/project_7/CorfuDraft_thumbnail.mp4",
     tags: ["Videography", "Video editing", "After Effects"],
     year: "2024",
     role: "Creator",
