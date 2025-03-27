@@ -76,6 +76,7 @@ export const projects = [
       We used a phisical set with "collage" technique, green screen and our acting skills. This is a humorous take on the book.
     `,
     mainVideo: "https://youtu.be/t2V8LO4CMyY",
+    thumbnailVideo: "project_imgs/project_3/rent_dira_thumbnail.mp4",
     tags: ["Interactive", "Installation", "Physical Computing"],
     year: "2020",
     role: "Installation Artist & Developer",
@@ -91,6 +92,7 @@ export const projects = [
       I used a storyboard to plan the video, and then filmed and edited it. Off course this is humorous approach to the product.
     `,
     mainVideo: "https://youtu.be/qGmnECY1fRs",
+    thumbnailVideo: "project_imgs/project_4/bazookaMoon_thumbnail.mp4",
     tags: ["Videography", "Video editing", "After Effects", "Story Board"],
     year: "2020",
     role: "Creator",
@@ -192,6 +194,7 @@ The sound design for the project was created by Yair Cohen.
       A video I made from my vacation in Corfu.
     `,
     mainVideo: "https://youtu.be/HQlK7td12T4",
+    thumbnailVideo: "project_imgs/project_7/CorfuDraft_thumbnail.mp4",
     tags: ["Videography", "Video editing", "After Effects"],
     year: "2024",
     role: "Creator",

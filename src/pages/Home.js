@@ -3,6 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/projects";
 import ProjectModal from "../components/ProjectModal";
 
+// Helper function to get YouTube video ID
+const getYouTubeId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
 const TypewriterText = ({ text }) => {
   return (
     <motion.span
@@ -138,8 +145,39 @@ const Home = () => {
     if (project.type === "mixed") {
       return project.mainMedia || { type: "image", src: project.mainImage };
     }
+
+    // For video projects
+    if (project.type === "video") {
+      // Check if there's a thumbnail image
+      if (project.thumbnailVideo) {
+        return {
+          type: "video",
+          src: project.thumbnailVideo,
+          isYouTube: false,
+        };
+      }
+      // If it's a YouTube URL, return a thumbnail image instead
+      if (
+        project.mainVideo.includes("youtube.com") ||
+        project.mainVideo.includes("youtu.be")
+      ) {
+        const videoId = getYouTubeId(project.mainVideo);
+        return {
+          type: "image",
+          src: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+        };
+      }
+      // Default to mainVideo
+      return {
+        type: "video",
+        src: project.mainVideo,
+        isYouTube: false,
+      };
+    }
+
+    // For image projects
     return {
-      type: project.type,
+      type: "image",
       src:
         project.type === "image"
           ? project.mainImage || project.images[0].src
