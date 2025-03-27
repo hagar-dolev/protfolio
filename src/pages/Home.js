@@ -11,6 +11,24 @@ const getYouTubeId = (url) => {
   return match && match[2].length === 11 ? match[2] : null;
 };
 
+// Helper function to get main media for a project
+const getMainMedia = (project) => {
+  if (project.type === "mixed") {
+    return project.mainMedia || { type: "image", src: project.mainImage };
+  }
+  return {
+    type: project.type,
+    src:
+      project.type === "image"
+        ? project.mainImage
+        : project.thumbnailVideo || project.mainVideo,
+    isYouTube:
+      project.type === "video" &&
+      !project.thumbnailVideo &&
+      project.mainVideo.includes("youtube.com"),
+  };
+};
+
 const TypewriterText = ({ text }) => {
   return (
     <motion.span
@@ -136,23 +154,6 @@ const Home = () => {
       default:
         return "col-span-4 row-span-1";
     }
-  };
-
-  const getMainMedia = (project) => {
-    if (project.type === "mixed") {
-      return project.mainMedia || { type: "image", src: project.mainImage };
-    }
-    return {
-      type: project.type,
-      src:
-        project.type === "image"
-          ? project.mainImage
-          : project.thumbnailVideo || project.mainVideo,
-      isYouTube:
-        project.type === "video" &&
-        !project.thumbnailVideo &&
-        project.mainVideo.includes("youtube.com"),
-    };
   };
 
   return (
