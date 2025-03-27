@@ -5,63 +5,63 @@ import { getAssetPath } from "../utils/paths";
 const photographs = [
   {
     id: 1,
-    src: "protfolio/photography/000131920062.jpg",
+    src: "portfolio/photography/000131920062.jpg",
   },
   {
     id: 2,
-    src: "protfolio/photography/000131920047.jpg",
+    src: "portfolio/photography/000131920047.jpg",
   },
   {
     id: 3,
-    src: "protfolio/photography/000131920046.jpg",
+    src: "portfolio/photography/000131920046.jpg",
   },
   {
     id: 4,
-    src: "protfolio/photography/000131920033.jpg",
+    src: "portfolio/photography/000131920033.jpg",
   },
   {
     id: 5,
-    src: "protfolio/photography/000131920016.jpg",
+    src: "portfolio/photography/000131920016.jpg",
   },
   {
     id: 6,
-    src: "protfolio/photography/IMG_7830.jpg",
+    src: "portfolio/photography/IMG_7830.jpg",
   },
   {
     id: 7,
-    src: "protfolio/photography/F1000022.jpg",
+    src: "portfolio/photography/F1000022.jpg",
   },
   {
     id: 8,
-    src: "protfolio/photography/F1000021.jpg",
+    src: "portfolio/photography/F1000021.jpg",
   },
   {
     id: 9,
-    src: "protfolio/photography/F1000016.jpg",
+    src: "portfolio/photography/F1000016.jpg",
   },
   {
     id: 10,
-    src: "protfolio/photography/97480015.jpg",
+    src: "portfolio/photography/97480015.jpg",
   },
   {
     id: 11,
-    src: "protfolio/photography/000017.jpg",
+    src: "portfolio/photography/000017.jpg",
   },
   {
     id: 12,
-    src: "protfolio/photography/000027.jpg",
+    src: "portfolio/photography/000027.jpg",
   },
   {
     id: 13,
-    src: "protfolio/photography/000013.jpg",
+    src: "portfolio/photography/000013.jpg",
   },
   {
     id: 14,
-    src: "protfolio/photography/IMG_8476.jpg",
+    src: "portfolio/photography/IMG_8476.jpg",
   },
   {
     id: 15,
-    src: "protfolio/photography/IMG_6723.jpg",
+    src: "portfolio/photography/IMG_6723.jpg",
   },
 ];
 
