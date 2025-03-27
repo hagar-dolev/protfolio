@@ -29,31 +29,31 @@ const photographs = [
   },
   {
     id: 7,
-    src: "photography/F1000022.JPG",
+    src: "photography/F1000022.jpg",
   },
   {
     id: 8,
-    src: "photography/F1000021.JPG",
+    src: "photography/F1000021.jpg",
   },
   {
     id: 9,
-    src: "photography/F1000016.JPG",
+    src: "photography/F1000016.jpg",
   },
   {
     id: 10,
-    src: "photography/97480015.JPG",
+    src: "photography/97480015.jpg",
   },
   {
     id: 11,
-    src: "photography/000017.JPG",
+    src: "photography/000017.jpg",
   },
   {
     id: 12,
-    src: "photography/000027.JPG",
+    src: "photography/000027.jpg",
   },
   {
     id: 13,
-    src: "photography/000013.JPG",
+    src: "photography/000013.jpg",
   },
   {
     id: 14,
