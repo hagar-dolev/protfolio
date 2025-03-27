@@ -32,11 +32,6 @@ yarn-error.log*
 # *.flv
 # *.mkv
 
-# # Large image files (we'll handle these with Cloudinary)
-# public/project_imgs/**/*.png
-# public/project_imgs/**/*.jpg
-# public/project_imgs/**/*.jpeg
-# public/project_imgs/**/*.gif
 
 # OS files
 .DS_Store
@@ -49,3 +44,6 @@ Thumbs.db
 
 # Remove media file exclusions since we're using Git LFS
 # Note: Keep this comment as a reminder that these files are handled by Git LFS
+
+/project_imgs
+/photography
