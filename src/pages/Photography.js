@@ -4,63 +4,63 @@ import { motion } from "framer-motion";
 const photographs = [
   {
     id: 1,
-    src: "./photography/000131920062.jpg",
+    src: "photography/000131920062.jpg",
   },
   {
     id: 2,
-    src: "./photography/000131920047.jpg",
+    src: "photography/000131920047.jpg",
   },
   {
     id: 3,
-    src: "./photography/000131920046.jpg",
+    src: "photography/000131920046.jpg",
   },
   {
     id: 4,
-    src: "./photography/000131920033.jpg",
+    src: "photography/000131920033.jpg",
   },
   {
     id: 5,
-    src: "./photography/000131920016.jpg",
+    src: "photography/000131920016.jpg",
   },
   {
     id: 6,
-    src: "./photography/IMG_7830.jpg",
+    src: "photography/IMG_7830.jpg",
   },
   {
     id: 7,
-    src: "./photography/F1000022.JPG",
+    src: "photography/F1000022.JPG",
   },
   {
     id: 8,
-    src: "./photography/F1000021.JPG",
+    src: "photography/F1000021.JPG",
   },
   {
     id: 9,
-    src: "./photography/F1000016.JPG",
+    src: "photography/F1000016.JPG",
   },
   {
     id: 10,
-    src: "./photography/97480015.JPG",
+    src: "photography/97480015.JPG",
   },
   {
     id: 11,
-    src: "./photography/000017.JPG",
+    src: "photography/000017.JPG",
   },
   {
     id: 12,
-    src: "./photography/000027.JPG",
+    src: "photography/000027.JPG",
   },
   {
     id: 13,
-    src: "./photography/000013.JPG",
+    src: "photography/000013.JPG",
   },
   {
     id: 14,
-    src: "./photography/IMG_8476.jpg",
+    src: "photography/IMG_8476.jpg",
   },
   {
     id: 15,
-    src: "./photography/IMG_6723.jpg",
+    src: "photography/IMG_6723.jpg",
   },
 ];
 
