@@ -8,26 +8,26 @@ export const projects = [
       Created a set of cards as part of a course assignment, "illustration with Rutu Modan".
       I used special oil color sticks, with inspiration from local cars.
     `,
-    mainImage: "protfolio/project_imgs/project_1/1.png",
+    mainImage: "portfolio/project_imgs/project_1/1.png",
     images: [
       {
-        src: "protfolio/project_imgs/project_1/1.png",
+        src: "portfolio/project_imgs/project_1/1.png",
         caption: "Eged Buses",
       },
       {
-        src: "protfolio/project_imgs/project_1/2.png",
+        src: "portfolio/project_imgs/project_1/2.png",
         caption: "My old 308 Peugeot",
       },
       {
-        src: "protfolio/project_imgs/project_1/3.png",
+        src: "portfolio/project_imgs/project_1/3.png",
         caption: "Israeli train",
       },
       {
-        src: "protfolio/project_imgs/project_1/4.png",
+        src: "portfolio/project_imgs/project_1/4.png",
         caption: "Tel aviv street commuters",
       },
       {
-        src: "protfolio/project_imgs/project_1/5.png",
+        src: "portfolio/project_imgs/project_1/5.png",
         caption: "My brother's helicopter",
       },
     ],
