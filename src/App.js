@@ -13,8 +13,11 @@ import Research from "./pages/Research";
 import Photography from "./pages/Photography";
 
 function App() {
+  // Use /portfolio basename only in production
+  const basename = process.env.NODE_ENV === "production" ? "/portfolio" : "/";
+
   return (
-    <BrowserRouter basename="/portfolio">
+    <BrowserRouter basename={basename}>
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
         <Header />
         <main className="flex-grow">
