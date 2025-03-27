@@ -203,4 +203,140 @@ The sound design for the project was created by Yair Cohen.
     hideFromLanding: true,
     isPortrait: true,
   },
+  {
+    id: 8,
+    type: "mixed",
+    title: "Hachaverim Shel Natasha",
+    shortDescription: "Band logo and album cover design",
+    description: `
+      I designed the logo and the album cover for the band "Hachaverim Shel Natasha", as part of a course assignment in bezalel.
+      The logo is inspired by one of the band member, Mika, who had a rough childhood which he decribed often.
+      I tried to convey the feeling of the lyrics, and the story of the band through the design.
+    `,
+    mainImage: "portfolio/project_imgs/project_8/1.png",
+    mainMedia: {
+      type: "video",
+      src: "portfolio/project_imgs/project_8/single_promo.mp4",
+    },
+    media: [
+      {
+        type: "video",
+        src: "portfolio/project_imgs/project_8/single_promo.mp4",
+        caption: "A suggested song promo video",
+      },
+      {
+        type: "svg",
+        src: "portfolio/project_imgs/project_8/Asset 5.svg",
+        caption: "The logo I designed for the band",
+        svgClassName: "max-w-[100px] mx-auto h-[150px] pt-8",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_8/show_poster.jpg",
+        caption: "A suggested poster for a show the band plays",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_8/full_branding_view.jpg",
+        caption: "Full view on all suggested branding",
+      },
+    ],
+  },
+  {
+    id: 9,
+    type: "image",
+    title: "Recipe illustration",
+    shortDescription: "Recipe illustration",
+    description: `
+      An illustration to accompany a recipe for tea. Made in a course with Michel Kichka.
+    `,
+    mainImage: "portfolio/project_imgs/project_9/Hagar_Dolev_Recipe_2.jpg",
+    images: [
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_9/Hagar_Dolev_Recipe_2.jpg",
+        caption: "Illudtrated with procreate on Ipad",
+      },
+    ],
+    tags: ["Illustration", "Promarker"],
+    year: "2020",
+    tools: ["Procreate", "Ipad"],
+    hideFromLanding: true,
+  },
+  {
+    id: 10,
+    type: "image",
+    title: "Packaging design",
+    shortDescription:
+      "I designed a sustainable packaging for a suggested farm shop",
+    description: `
+      I designed a sustainable packaging for a suggested farm shop.
+      The packaging is designed with banana leaves and paper in the aim to be as sustainable as possible.
+      It was inspired by the far east culture where the leaves are used even for cooking.
+    `,
+    mainImage: "portfolio/project_imgs/project_10/הכל_מונח_מבולגן.jpg",
+    tags: ["Packaging design", "Illustration"],
+    year: "2020",
+    images: [
+      {
+        type: "image",
+        caption: "Eggs packaging",
+        src: "portfolio/project_imgs/project_10/ביצים_מלמעלה.jpg",
+      },
+      {
+        type: "image",
+        caption: "The main packaging design",
+        src: "portfolio/project_imgs/project_10/הכל_מונח_מבולגן.jpg",
+      },
+      {
+        type: "image",
+        caption: "Dates packaging",
+        src: "portfolio/project_imgs/project_10/תמרים.jpg",
+      },
+    ],
+    hideFromLanding: true,
+  },
+  {
+    id: 11,
+    type: "image",
+    title: "Sketches",
+    shortDescription: "Variouse sketches",
+    description: `
+      Skeching is thinking as one of my teachers said.
+    `,
+    mainImage: "portfolio/project_imgs/project_11/7.jpg",
+    tags: ["Sketching", "Illustration"],
+    year: "mixed",
+    images: [
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/1.jpg",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/2.jpg",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/3.jpg",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/4.jpg",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/5.jpg",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/6.jpg",
+      },
+      {
+        type: "image",
+        src: "portfolio/project_imgs/project_11/8.jpg",
+      },
+    ],
+    // hideFromLanding: true,
+  },
 ];
