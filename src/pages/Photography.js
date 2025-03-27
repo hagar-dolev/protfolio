@@ -1,138 +1,175 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-// This will be your photography data
 const photographs = [
-  // You'll add your photos here with compressed versions
-  // Example structure:
-  // {
-  //   id: 1,
-  //   title: "Photo Title",
-  //   description: "Photo description",
-  //   thumbnail: "/path/to/compressed/image.jpg",
-  //   category: "nature" // or any other category
-  // }
+  {
+    id: 1,
+    src: "/photography/000131920062.jpg",
+  },
+  {
+    id: 2,
+    src: "/photography/000131920047.jpg",
+  },
+  {
+    id: 3,
+    src: "/photography/000131920046.jpg",
+  },
+  {
+    id: 4,
+    src: "/photography/000131920033.jpg",
+  },
+  {
+    id: 5,
+    src: "/photography/000131920016.jpg",
+  },
+  {
+    id: 6,
+    src: "/photography/IMG_7830.jpg",
+  },
+  {
+    id: 7,
+    src: "/photography/F1000022.JPG",
+  },
+  {
+    id: 8,
+    src: "/photography/F1000021.JPG",
+  },
+  {
+    id: 9,
+    src: "/photography/F1000016.JPG",
+  },
+  {
+    id: 10,
+    src: "/photography/97480015.JPG",
+  },
+  {
+    id: 11,
+    src: "/photography/000017.JPG",
+  },
+  {
+    id: 12,
+    src: "/photography/000027.JPG",
+  },
+  {
+    id: 13,
+    src: "/photography/000013.JPG",
+  },
+  {
+    id: 14,
+    src: "/photography/IMG_8476.jpg",
+  },
+  {
+    id: 15,
+    src: "/photography/IMG_6723.jpg",
+  },
 ];
 
 const Photography = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const categories = ["all", "nature", "urban", "abstract", "portraits"];
+  // Prevent right click
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
+  // Prevent drag
+  const handleDragStart = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-white dark:bg-gray-900 pt-16"
+      className="min-h-screen pt-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-800"
+      onContextMenu={handleContextMenu}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
+      <div className="max-w-7xl mx-auto py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Photography
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            A collection of moments captured through my lens
-          </p>
-        </div>
-
-        {/* Category Filter */}
-        <div className="flex justify-center gap-4 mb-12 overflow-x-auto pb-4">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors ${
-                selectedCategory === category
-                  ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
-                  : "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-              }`}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          ))}
         </div>
 
         {/* Photo Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {photographs
-            .filter(
-              (photo) =>
-                selectedCategory === "all" ||
-                photo.category === selectedCategory
-            )
-            .map((photo) => (
-              <motion.div
-                key={photo.id}
-                layoutId={`photo-${photo.id}`}
-                className="relative group cursor-pointer overflow-hidden rounded-lg"
-                onClick={() => setSelectedImage(photo)}
-              >
-                <div className="aspect-w-4 aspect-h-3">
-                  <img
-                    src={photo.thumbnail}
-                    alt={photo.title}
-                    className="object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
-                  />
-                  {/* Watermark */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white text-lg font-semibold">
-                        {photo.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 pointer-events-none select-none">
-                    <div className="w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-30">
-                      <span className="text-white text-xl transform -rotate-45 font-light">
-                        © Hagar Dolev
-                      </span>
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {photographs.map((photo) => (
+            <div
+              key={photo.id}
+              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+              onClick={() => setSelectedImage(photo)}
+            >
+              <img
+                src={photo.src}
+                alt=""
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                onDragStart={handleDragStart}
+                style={{
+                  WebkitUserSelect: "none",
+                  MozUserSelect: "none",
+                  msUserSelect: "none",
+                  userSelect: "none",
+                }}
+              />
+              <div className="absolute inset-0 pointer-events-none select-none">
+                <div className="w-full h-full flex items-center justify-center opacity-0">
+                  © Hagar Dolev
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Lightbox */}
-        <AnimatePresence>
-          {selectedImage && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-              onClick={() => setSelectedImage(null)}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md"
+            onClick={() => setSelectedImage(null)}
+            onContextMenu={handleContextMenu}
+          >
+            <div
+              className="relative max-w-7xl mx-4"
+              onClick={(e) => e.stopPropagation()}
             >
-              <motion.div
-                layoutId={`photo-${selectedImage.id}`}
-                className="relative max-w-5xl max-h-[90vh]"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <img
-                  src={selectedImage.thumbnail}
-                  alt={selectedImage.title}
-                  className="w-full h-full object-contain"
-                />
-                <div className="absolute inset-0 pointer-events-none select-none">
-                  <div className="w-full h-full flex items-center justify-center opacity-30">
-                    <span className="text-white text-3xl transform -rotate-45 font-light">
-                      © Hagar Dolev
-                    </span>
-                  </div>
+              <img
+                src={selectedImage.src}
+                alt=""
+                className="max-h-[90vh] w-auto pointer-events-none select-none"
+                onDragStart={handleDragStart}
+                style={{
+                  WebkitUserSelect: "none",
+                  MozUserSelect: "none",
+                  msUserSelect: "none",
+                  userSelect: "none",
+                }}
+              />
+              <div className="absolute inset-0 pointer-events-none select-none">
+                <div className="absolute bottom-4 right-4 text-white/50 text-sm font-press-start">
+                  © {new Date().getFullYear()} Hagar Dolev
                 </div>
-                <button
-                  onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 text-white text-2xl"
+              </div>
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  ×
-                </button>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

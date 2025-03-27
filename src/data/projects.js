@@ -183,4 +183,19 @@ The sound design for the project was created by Yair Cohen.
       },
     ],
   },
+  {
+    id: 7,
+    type: "video",
+    title: "Corfu",
+    shortDescription: "Vacation video",
+    description: `
+      A video I made from my vacation in Corfu.
+    `,
+    mainVideo: "/project_imgs/project_7/CorfuDraft.mov",
+    tags: ["Videography", "Video editing", "After Effects"],
+    year: "2024",
+    role: "Creator",
+    hideFromLanding: true,
+    isPortrait: true,
+  },
 ];

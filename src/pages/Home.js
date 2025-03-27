@@ -93,9 +93,9 @@ const Home = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
 
-  // Filter projects for the showcase (excluding Flat World)
+  // Filter out projects that should be hidden from landing
   const showcaseProjects = projects.filter(
-    (project) => project.title !== "Flat World"
+    (project) => !project.hideFromLanding
   );
 
   useEffect(() => {

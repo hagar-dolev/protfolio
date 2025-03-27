@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ChevronLeftIcon,
@@ -34,7 +34,11 @@ const MediaDisplay = ({ media, className }) => {
     return (
       <video
         src={media.src}
-        className={`${className} object-contain`}
+        className={`${className} ${
+          media.isPortrait
+            ? "max-h-[90vh] w-auto mx-auto"
+            : "w-full h-full object-contain"
+        }`}
         controls
         autoPlay
         loop
@@ -54,12 +58,26 @@ const MediaDisplay = ({ media, className }) => {
 const ProjectModal = ({ project, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+
   const mediaItems =
     project.type === "mixed"
       ? project.media
       : project.type === "image"
       ? project.images.map((img) => ({ type: "image", ...img }))
-      : [{ type: "video", src: project.mainVideo }];
+      : [
+          {
+            type: "video",
+            src: project.mainVideo,
+            isPortrait: project.isPortrait,
+          },
+        ];
 
   const nextMedia = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
@@ -90,14 +108,14 @@ const ProjectModal = ({ project, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-start justify-center"
       onClick={onClose}
     >
       {/* Dark overlay with blur effect */}
       <div className="fixed inset-0 bg-black/70 backdrop-blur-md" />
 
       <div
-        className="relative w-full max-w-6xl p-4 mx-4 my-4"
+        className="relative w-full max-w-6xl p-4 mx-4 my-4 overflow-y-auto max-h-screen"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative">

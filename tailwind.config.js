@@ -21,6 +21,7 @@ module.exports = {
           "Arial",
           "sans-serif",
         ],
+        "press-start": ['"Press Start 2P"', "cursive"],
       },
       backgroundColor: {
         light: "#FFFFFF",

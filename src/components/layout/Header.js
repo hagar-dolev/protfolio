@@ -48,7 +48,7 @@ const Header = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-cinzel font-bold text-neutral-900 dark:text-white">
+              <span className="text-lg font-press-start text-neutral-900 dark:text-white">
                 Hagar Dolev
               </span>
             </Link>
