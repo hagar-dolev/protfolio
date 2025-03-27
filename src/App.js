@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import Research from "./pages/Research";
+import Photography from "./pages/Photography";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/research" element={<Research />} />
+            <Route path="/photography" element={<Photography />} />
           </Routes>
         </AnimatePresence>
       </div>

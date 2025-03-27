@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   ChevronLeftIcon,
@@ -6,49 +6,101 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-const ProjectModal = ({ project, onClose }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+// Helper function to get YouTube video ID
+const getYouTubeId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
 
-  const nextImage = () => {
-    if (project.type === "image") {
-      setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (project.type === "image") {
-      setCurrentImageIndex(
-        (prev) => (prev - 1 + project.images.length) % project.images.length
+const MediaDisplay = ({ media, className }) => {
+  if (media.type === "video") {
+    // Check if it's a YouTube URL
+    if (media.src.includes("youtube.com") || media.src.includes("youtu.be")) {
+      const videoId = getYouTubeId(media.src);
+      return (
+        <div className={`${className} relative w-full aspect-video`}>
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title="YouTube video player"
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
       );
     }
-  };
+    // Local video file
+    return (
+      <video
+        src={media.src}
+        className={`${className} object-contain`}
+        controls
+        autoPlay
+        loop
+        playsInline
+      />
+    );
+  }
+  return (
+    <img
+      src={media.src}
+      alt={media.caption}
+      className={`${className} object-contain`}
+    />
+  );
+};
+
+const ProjectModal = ({ project, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const mediaItems =
+    project.type === "mixed"
+      ? project.media
+      : project.type === "image"
+      ? project.images.map((img) => ({ type: "image", ...img }))
+      : [{ type: "video", src: project.mainVideo }];
+
+  const nextMedia = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
+  }, [mediaItems.length]);
+
+  const prevMedia = useCallback(() => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + mediaItems.length) % mediaItems.length
+    );
+  }, [mediaItems.length]);
 
   // Handle keyboard navigation
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextMedia();
+      if (e.key === "ArrowLeft") prevMedia();
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
+  }, [onClose, nextMedia, prevMedia]);
+
+  const currentMedia = mediaItems[currentIndex];
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto pt-4"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      {/* Dark overlay with blur effect */}
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-md" />
+
       <div
         className="relative w-full max-w-6xl p-4 mx-4 my-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-white/10 backdrop-blur-md p-8 relative">
+        <div className="relative">
           <button
             onClick={onClose}
             className="absolute top-2 right-2 z-10 p-2 text-white hover:text-gray-300 transition-colors"
@@ -58,58 +110,52 @@ const ProjectModal = ({ project, onClose }) => {
           </button>
 
           {/* Media Section */}
-          <div className="relative max-h-[65vh] flex items-center justify-center mb-8 overflow-hidden">
-            {project.type === "image" ? (
+          <div className="relative max-h-[70vh] flex items-center justify-center">
+            <MediaDisplay
+              media={currentMedia}
+              className="max-w-full max-h-[70vh] w-auto h-auto"
+            />
+
+            {mediaItems.length > 1 && (
               <>
-                <img
-                  src={project.images[currentImageIndex].src}
-                  alt={project.images[currentImageIndex].caption}
-                  className="max-w-full max-h-[65vh] w-auto h-auto object-contain"
-                />
-                {project.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white hover:text-gray-300 transition-colors"
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeftIcon className="h-6 w-6" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:text-gray-300 transition-colors"
-                      aria-label="Next image"
-                    >
-                      <ChevronRightIcon className="h-6 w-6" />
-                    </button>
-                    <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/90 text-sm">
-                      {project.images[currentImageIndex].caption}
-                    </p>
-                  </>
-                )}
+                <button
+                  onClick={prevMedia}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white hover:text-gray-300 transition-colors"
+                  aria-label="Previous media"
+                >
+                  <ChevronLeftIcon className="h-6 w-6" />
+                </button>
+                <button
+                  onClick={nextMedia}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:text-gray-300 transition-colors"
+                  aria-label="Next media"
+                >
+                  <ChevronRightIcon className="h-6 w-6" />
+                </button>
               </>
-            ) : (
-              <video
-                src={project.mainVideo}
-                className="max-w-full max-h-[65vh] w-auto h-auto object-contain"
-                controls
-                autoPlay
-                loop
-                playsInline
-              />
             )}
           </div>
 
+          {/* Media Caption */}
+          {currentMedia.caption && (
+            <div className="text-center pt-2">
+              <p className="text-white/90 text-sm">{currentMedia.caption}</p>
+            </div>
+          )}
+
           {/* Project Information */}
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">
+          <div className="pt-3">
+            <h2 className="text-3xl font-bold text-white mb-3 text-center">
               {project.title}
             </h2>
-            <div className="prose prose-lg prose-invert mx-auto mb-8 text-left">
+            <div className="max-w-2xl mx-auto">
               {project.description.split("\n").map(
                 (paragraph, index) =>
                   paragraph.trim() && (
-                    <p key={index} className="text-white/90 mb-4">
+                    <p
+                      key={index}
+                      className="text-white/90 mb-2 text-left leading-snug"
+                    >
                       {paragraph}
                     </p>
                   )
@@ -117,10 +163,10 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
 
             {/* Project Details */}
-            <div className="border-t border-white/20 pt-6 mt-8 text-center">
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <div className="border-t border-white/20 pt-3 mt-3 max-w-2xl mx-auto">
+              <div className="flex flex-wrap justify-start gap-2 mb-3">
                 {project.tools && (
-                  <div className="flex flex-wrap justify-center gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {project.tools.map((tool) => (
                       <span
                         key={tool}
@@ -133,7 +179,7 @@ const ProjectModal = ({ project, onClose }) => {
                 )}
               </div>
 
-              <div className="flex flex-wrap justify-center gap-8 text-white/90">
+              <div className="flex flex-wrap gap-4 text-white/90">
                 {project.year && (
                   <div>
                     <span className="font-semibold">Year:</span> {project.year}
@@ -147,7 +193,7 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
 
               {project.links && (
-                <div className="mt-6 flex justify-center gap-4">
+                <div className="mt-3 flex gap-4">
                   {project.links.map((link) => (
                     <a
                       key={link.url}
