@@ -75,7 +75,7 @@ export const projects = [
       This is for the show "Dira Le'Haskir" based on the book by the same name.
       We used a phisical set with "collage" technique, green screen and our acting skills. This is a humorous take on the book.
     `,
-    mainVideo: "project_imgs/project_3/rent_dira.mov",
+    mainVideo: "https://youtu.be/t2V8LO4CMyY",
     tags: ["Interactive", "Installation", "Physical Computing"],
     year: "2020",
     role: "Installation Artist & Developer",
@@ -90,7 +90,7 @@ export const projects = [
       As part of a course assignment, I created a suggested advertisment for "Bazooka", the chewing gum that promises to take you to space.
       I used a storyboard to plan the video, and then filmed and edited it. Off course this is humorous approach to the product.
     `,
-    mainVideo: "project_imgs/project_4/bazookaMoon.mp4",
+    mainVideo: "https://youtu.be/qGmnECY1fRs",
     tags: ["Videography", "Video editing", "After Effects", "Story Board"],
     year: "2020",
     role: "Creator",
@@ -191,7 +191,7 @@ The sound design for the project was created by Yair Cohen.
     description: `
       A video I made from my vacation in Corfu.
     `,
-    mainVideo: "project_imgs/project_7/CorfuDraft.mov",
+    mainVideo: "https://youtu.be/HQlK7td12T4",
     tags: ["Videography", "Video editing", "After Effects"],
     year: "2024",
     role: "Creator",
