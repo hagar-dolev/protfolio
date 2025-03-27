@@ -163,7 +163,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ const Home = () => {
       </section>
 
       {/* Projects Grid Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-800">
+      <section className="py-0 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto">
           {/* Gallery Wall Grid */}
           <div className="grid grid-cols-12 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
